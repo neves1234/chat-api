@@ -17,3 +17,19 @@ async function findALL(collection){
     return db.collection(collection).findALL().toArray();
 }
 module.exports = { findALL}
+
+let findOne = async(collection, _id)=>{
+    const db = await connect();
+    let obj= await
+    db.collection(collection).find({'_id':new objectId(_id)}).toArray();
+    if(obj)
+        return obj[0]
+    return false;
+}
+
+let updateOne = async (collection, Object, param)=>{
+    const db = await connect();
+    let result = await
+db.collection(collection).updateOne(param, {$set: Object});
+return result;
+}
